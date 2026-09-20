@@ -1,7 +1,7 @@
 {
   "name": "agent-janitor",
   "version": "0.1.0",
-  "description": "Deterministic lifecycle management for AI-agent artifacts (plan docs, scratch scripts, research notes) in git repositories. Zero LLM calls, reviewable plans, evidence for every item.",
+  "description": "The janitor must not be an agent — deterministic cleanup of plan docs & scratch scripts left by AI coding agents",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -12,6 +12,7 @@
   },
   "files": [
     "dist",
+    "scripts",
     "README.md",
     "LICENSE"
   ],
@@ -19,18 +20,14 @@
     "build": "tsc",
     "test": "npm run build && node run-tests.mjs",
     "demo": "node scripts/demo.mjs",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
-    "ai",
-    "agent",
-    "cleanup",
-    "hygiene",
-    "git",
+    "ai-agents",
+    "developer-tools",
     "cli",
-    "plan",
-    "llm",
-    "artifacts",
+    "git",
     "housekeeping"
   ],
   "dependencies": {
@@ -39,5 +36,9 @@
   "devDependencies": {
     "@types/node": "^24.0.0",
     "typescript": "^5.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhengqiuyang/agent-janitor.git"
   }
 }
